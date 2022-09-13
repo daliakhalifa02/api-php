@@ -5,6 +5,8 @@
     <input type="submit" value="Check" /><br /><br>
     Countdown:<input type="text" name="date" required />
     <input type="submit" value="Check" /><br />
+    Enter an integer:<input type="text" name="date" required />
+    <input type="submit" value="Check" /><br />
 </form>
 <?php   
     if($_GET)  
@@ -13,7 +15,6 @@
         $string = $_GET['string'];  
         //reversing the string  
         $reverse = strrev($string);  
-          
         //checking if the string and reverse is equal  
         if($string == $reverse){  
             echo "The string $string is Palindrome";     
@@ -38,13 +39,19 @@
 
     if ($_GET){
         $date = $_GET['date'];
-        date_default_timezone_set('Turkey');
+        date_default_timezone_set('Australia');
         $christmasDay = strtotime('December 25');
         $time = time();
         $days = ceil(($christmasDay - $time)/60/60/24);  
         echo "There are " . $days . " days until Christmas";
     }
     
-
+    if($_POST){
+        $a = $_POST['a'];
+        $b = $_POST['b'];
+        $c = $_POST['c'];
+        $result = ($a^3 + $b*$c - $a/$b);
+        echo $result;
+    }
 
 ?>
